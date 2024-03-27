@@ -6,25 +6,22 @@ class Account:
         self.savingAccount = savingAccount()
         self.chequingAccount = chequingAccount()
     
-    def get_accountNo(self):
-        pass
-    
-    def get_account_name(self):
-        pass
-    #Stating the balance in account 
+    #stating the user's account info and balance
     def profile(self):
-        print(self.accountNo, self.account_name)
-        print("Current Balance: ", self.chequingAccount.balance)
+        print("Account Number: ", self.accountNo)
+        print("Account Name: ", self.account_name)
+        print("Chequing Balance: ", self.chequingAccount.balance)
+        print("Savings Balance: ", self.savingAccount.balance)
     
     def withdraw(self, amount):
-        choice = input("Saving or Chequing")
+        choice = int(input("Choose 1 for Saving or 2 for Chequing"))
         if choice == 1:
             self.savingAccount. withdraw(amount)
         else:
             self.chequingAccount.withdraw(amount) 
 
     def deposit(self, amount):
-        choice = input("Saving or Chequing")
+        choice = int(input("Choose 1 for Saving or 2 for Chequing"))
         if choice == 1:
             self.savingAccount.deposit(amount)
         else:

@@ -2,10 +2,11 @@ import Account
 
 class savingAccount(Account):
     def __init__(self):
-        self.balance = 5000
+        self.balance = 1000
+        self.min_balance = 200
     
     def withdraw(self, amount):
-        if amount <= self.balance:
+        if amount - self.balance >= self.min_balance:
             self.balance -= amount 
             print("Current Balance: ", self.balance)
         else:
