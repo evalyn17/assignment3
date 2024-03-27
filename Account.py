@@ -13,6 +13,7 @@ class Account:
         print("Chequing Balance: ", self.chequeingAccount.balance)
         print("Savings Balance: ", self.savingAccount.balance)
     
+    #asking user to deposit/withdraw from savings or chequeings
     def withdraw(self, amount):
         choice = int(input("Choose 1 for Saving or 2 for Chequing"))
         if choice == 1:
@@ -27,11 +28,13 @@ class Account:
         else:
             self.chequeingAccount.deposit(amount)
 
+#stating limit and balance in chequeing
 class chequeingAccount(Account):
     def __init__(self):
         self.balance = 500
         self.overdraft_limit = 1000
-    
+
+#giving user the current balance for withdrawal/deposits in chequeings and if the transaction was successful or not
     def withdraw(self, amount):
         if amount <= self.balance + self.overdraft_limit:
             self.balance -= amount
@@ -46,11 +49,13 @@ class chequeingAccount(Account):
         else:
             print("Invalid Amount!")
 
+#stating limit and balance in savings 
 class savingAccount(Account):
     def __init__(self):
         self.balance = 1000
         self.min_balance = 200
-    
+
+#giving user the current balance for withdrawal/deposits in savings and if the transaction was successful or not
     def withdraw(self, amount):
         if amount - self.balance >= self.min_balance:
             self.balance -= amount 
