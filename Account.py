@@ -26,5 +26,6 @@ class Account:
             self.savingAccount.deposit(amount)
         else:
             self.chequingAccount.deposit(amount)
-    
- 
+
+accountNo = int(input("Enter Account Number: "))
+account_name = input("Enter Name: ")
