@@ -1,16 +1,16 @@
 class Account:
     #Attributes for the Account class 
-    def __init__(self, accountNo, account_name, savingAccount, chequingAccount):
+    def __init__(self, accountNo, account_name, savingAccount, chequeingAccount):
         self.accountNo = accountNo
         self.account_name = account_name
         self.savingAccount = savingAccount()
-        self.chequingAccount = chequingAccount()
+        self.chequeingAccount = chequeingAccount()
     
     #stating the user's account info and balance
     def profile(self):
         print("Account Number: ", self.accountNo)
         print("Account Name: ", self.account_name)
-        print("Chequing Balance: ", self.chequingAccount.balance)
+        print("Chequing Balance: ", self.chequeingAccount.balance)
         print("Savings Balance: ", self.savingAccount.balance)
     
     def withdraw(self, amount):
@@ -21,13 +21,13 @@ class Account:
             self.chequingAccount.withdraw(amount) 
 
     def deposit(self, amount):
-        choice = int(input("Choose 1 for Saving or 2 for Chequing"))
+        choice = int(input("Choose 1 for Saving or 2 for Chequeing"))
         if choice == 1:
             self.savingAccount.deposit(amount)
         else:
-            self.chequingAccount.deposit(amount)
+            self.chequeingAccount.deposit(amount)
 
-class checqueingAccount(Account):
+class chequeingAccount(Account):
     def __init__(self):
         self.balance = 500
         self.overdraft_limit = 1000
