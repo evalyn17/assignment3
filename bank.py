@@ -1,4 +1,4 @@
-import Account, savingAccount, chequeingAccount
+from Account import Account, savingAccount, chequeingAccount
 
 class bank:
     bank_name = "TD"

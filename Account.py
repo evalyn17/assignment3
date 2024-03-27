@@ -19,7 +19,7 @@ class Account:
         if choice == 1:
             self.savingAccount. withdraw(amount)
         else:
-            self.chequingAccount.withdraw(amount) 
+            self.chequeingAccount.withdraw(amount) 
 
     def deposit(self, amount):
         choice = int(input("Choose 1 for Saving or 2 for Chequeing"))
