@@ -1,4 +1,5 @@
 import Account
+
 class checqueingAccount(Account):
     def __init__(self):
         self.balance = 500
