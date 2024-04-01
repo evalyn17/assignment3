@@ -1,71 +1,31 @@
 class Account:
-    #Attributes for the Account class 
-    def __init__(self, accountNo, account_name, savingAccount, chequeingAccount):
+    def __init__(self, accountNo, account_name, savingAccount, checqueingAccount):
         self.accountNo = accountNo
         self.account_name = account_name
-        self.savingAccount = savingAccount()
-        self.chequeingAccount = chequeingAccount()
+        self.savingAccount = savingAccount
+        self.checqueingAccount = checqueingAccount
     
-    #stating the user's account info and balance
     def profile(self):
-        print("Account Number: ", self.accountNo)
-        print("Account Name: ", self.account_name)
-        print("Chequing Balance: ", self.chequeingAccount.balance)
-        print("Savings Balance: ", self.savingAccount.balance)
+        print("Account Number:", self.accountNo)
+        print("Account Name:", self.account_name)
+        print("Chequing Balance:", self.checqueingAccount.balance)
+        print("Savings Balance:", self.savingAccount.balance)
     
-    #asking user to deposit/withdraw from savings or chequeings
     def withdraw(self, amount):
-        choice = int(input("Choose 1 for Saving or 2 for Chequing"))
+        choice = int(input("Choose 1 for Saving or 2 for Chequing: "))
         if choice == 1:
-            self.savingAccount. withdraw(amount)
+            self.savingAccount.withdraw(amount)
+        elif choice == 2:
+            self.checqueingAccount.withdraw(amount)
         else:
-            self.chequeingAccount.withdraw(amount) 
+            print("Invalid choice!")
 
     def deposit(self, amount):
-        choice = int(input("Choose 1 for Saving or 2 for Chequeing"))
+        choice = int(input("Choose 1 for Saving or 2 for Chequing: "))
         if choice == 1:
             self.savingAccount.deposit(amount)
+        elif choice == 2:
+            self.checqueingAccount.deposit(amount)
         else:
-            self.chequeingAccount.deposit(amount)
+            print("Invalid choice!")
 
-#stating limit and balance in chequeing
-class chequeingAccount(Account):
-    def __init__(self):
-        self.balance = 500
-        self.overdraft_limit = 1000
-
-#giving user the current balance for withdrawal/deposits in chequeings and if the transaction was successful or not
-    def withdraw(self, amount):
-        if amount <= self.balance + self.overdraft_limit:
-            self.balance -= amount
-            print("Current Balance: ", self.balance)
-        else:
-            print("You Do Not Have Enough Funds!")
-    
-    def deposit(self, amount):
-        if amount > 0:
-            self.balance += amount
-            print("Current Balance: ", self.balance)
-        else:
-            print("Invalid Amount!")
-
-#stating limit and balance in savings 
-class savingAccount(Account):
-    def __init__(self):
-        self.balance = 1000
-        self.min_balance = 200
-
-#giving user the current balance for withdrawal/deposits in savings and if the transaction was successful or not
-    def withdraw(self, amount):
-        if amount - self.balance >= self.min_balance:
-            self.balance -= amount 
-            print("Current Balance: ", self.balance)
-        else:
-            print("You Do Not Have Enough Funds!")
-    
-    def deposit(self,amount):
-        if amount > 0:
-            self.balance += amount
-            print("Current Balance: ", self.balance)
-        else:
-            print("Invalid Amount!")
